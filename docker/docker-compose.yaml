@@ -2,7 +2,7 @@ version: '3'
 services:
   # API service
   api:
-    image: langgenius/dify-api:0.6.5
+    image: sym-svr:8999/dify/dify:0.6.5
     restart: always
     environment:
       # Startup mode, 'api' starts the API server.
@@ -163,7 +163,7 @@ services:
   # worker service
   # The Celery worker for processing the queue.
   worker:
-    image: langgenius/dify-api:0.6.5
+    image: sym-svr:8999/dify/dify:0.6.5
     restart: always
     environment:
       # Startup mode, 'worker' starts the Celery worker for processing the queue.
@@ -378,5 +378,5 @@ services:
       - api
       - web
     ports:
-      - "80:80"
+      - "9010:80"
       #- "443:443"

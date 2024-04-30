@@ -1,0 +1,49 @@
+provider: infinity
+label:
+  en_US: Infinity
+description:
+  en_US: Model backend focus on embedding and reranking.
+  zh_Hans: 集中在Embedding和Reranking的后端。
+supported_model_types:
+  - rerank
+configurate_methods:
+  - customizable-model
+model_credential_schema:
+  model:
+    label:
+      en_US: Model Name
+      zh_Hans: 模型名称
+    placeholder:
+      en_US: Enter full model name
+      zh_Hans: 输入模型全称
+  credential_form_schemas:
+    - variable: api_key
+      label:
+        en_US: API Key
+      type: secret-input
+      required: false
+      placeholder:
+        zh_Hans: 在此输入您的 API Key
+        en_US: Enter your API Key
+    - variable: endpoint_url
+      label:
+        zh_Hans: API endpoint URL
+        en_US: API endpoint URL
+      type: text-input
+      required: true
+      placeholder:
+        zh_Hans: Base URL, 例如 https://localhost:7997
+        en_US: Base URL, e.g. https://localhost:7997
+    - variable: context_size
+      show_on:
+        - variable: __model_type
+          value: embedding
+      label:
+        zh_Hans: 模型Token长度
+        en_US: Model context size
+      required: true
+      type: text-input
+      default: '384'
+      placeholder:
+        zh_Hans: 在此输入您的模型上下文长度
+        en_US: Enter your context size
