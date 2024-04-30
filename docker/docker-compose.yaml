@@ -3,7 +3,7 @@ name: dify
 services:
   # API service
   api:
-    image: sym-svr:8999/dify/dify:0.6.5
+    image: sym-svr:8999/dify/dify-api:0.6.5
     restart: always
     environment:
       # Startup mode, 'api' starts the API server.
@@ -164,7 +164,7 @@ services:
   # worker service
   # The Celery worker for processing the queue.
   worker:
-    image: sym-svr:8999/dify/dify:0.6.5
+    image: sym-svr:8999/dify/dify-api:0.6.5
     restart: always
     environment:
       # Startup mode, 'worker' starts the Celery worker for processing the queue.
